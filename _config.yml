@@ -97,7 +97,7 @@ name             : "HeeJae_Lee"
 avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
 bio              : ""
 location         : "Seoul"
-email            : ktkt13134@gmail.com
+email            : 
   links:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
