@@ -14,7 +14,7 @@ tags: [javascript, spring]
 
 외부함수의 지역변수에 접근 가능한 내부함수가 소멸할 때까지 외부함수가 소멸되지 않는 특성을 의미
 ~~~java
-[closer 클로저 예제]
+[closure 클로저 예제]
 function outter(){
     var title = 'coding everybody';  
     return function(){        
