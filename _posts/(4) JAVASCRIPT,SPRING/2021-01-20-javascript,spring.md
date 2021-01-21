@@ -131,7 +131,7 @@ var objCar = {
 
 -DOM 객체를 배우면 이미지도 바꿔 보도록 합시다.
 
-
+~~~javascript
 <!DOCTYPE html>
 <html>
 <head>
@@ -146,10 +146,10 @@ var objCar = {
 		function Game() {
 			var com;
 			var user;
-
+			var result;
 			this.getCom = function() {
-				return this.com = Math.floor(Math.random() + 1);
-				;
+				return this.com = Math.floor((Math.random()*3)+1);
+
 			}
 			this.setCom = function(com) {
 				this.com = com;
@@ -159,54 +159,55 @@ var objCar = {
 				return this.user;
 			}
 			this.setUser = function(user) {
+				this.user = user;
 				if (user == 1 || user == 2 || user == 3) {
 					this.user = user;
 				} else {
 					console.log("가위=1, 바위=2, 보=3 중에 입력하세요")
 				}
 			}
+
+			this.result = function() {
+
+				if (this.com == 1 && this.user == 1) {
+					return ("비김");
+				} else if (this.com == 1 && this.user == 2) {
+					return("이김");
+				} else if (this.com == 1 && this.user == 3) {
+					return("컴퓨터승리");
+				}
+
+				if (this.com == 2 && this.user == 2) {
+					return("비김");
+				} else if (this.com == 2 && this.user == 1) {
+					return("컴퓨터승리");
+				} else if (this.com == 2 && this.user == 3) {
+					return("이김");
+				}
+
+				if (this.com == 3 && this.user == 3) {
+					return("비김");
+				} else if (this.com == 3 && this.user == 1) {
+					return("이김");
+				} else {
+					return("컴퓨터승리");
+				}
+			}
 		}
-		this.result = function() {
-
-			if (this.com == 1 && this.user == 1) {
-				console.log("비김");
-			} else if (this.com == 1 && this.user == 2) {
-				console.log("이김");
-			} else if (this.com == 1 && this.user == 3) {
-				console.log("컴퓨터승리");
-			}
-
-			if (this.com == 2 && this.user == 2) {
-				console.log("비김");
-			} else if (this.com == 2 && this.user == 1) {
-				console.log("컴퓨터승리");
-			} else if (this.com == 2 && this.user == 3) {
-				console.log("이김");
-			}
-
-			if (this.com == 3 && this.user == 3) {
-				console.log("비김");
-			} else if (this.com == 3 && this.user == 1) {
-				console.log("이김");
-			} else {
-				console.log("컴퓨터승리");
-			}
-		}
-
-		var getResult = new Game();
-		var userinput = prompt("가위=1, 바위=2, 보=3", "입력")
-		getResult.getCom()
-		getResult.getUser();
-		console.log("결과는 : " + getResult.result());
+		var userinput = prompt("가위=1, 바위=2, 보=3", "입력");
+		var gameResult = new Game();
+		gameResult.getCom();
+		gameResult.setUser(userinput);
+		console.log("컴퓨터 : "+gameResult.getCom());
+		console.log("나 : "+userinput);
+		console.log("결과는 : " + gameResult.result());
 	</script>
-</body>
-</html>
+~~~
+![image](https://user-images.githubusercontent.com/74958197/105272336-7f345180-5bdc-11eb-9e7e-1d4c0f50e48e.png)
 
 
-
-
-
-
+//출력값이 숫자말고 문자로 구현할것.
+//가위1 바위2 보3 일때. 가위바위보 값 로직=(user-com+1)%3
 
 
 
