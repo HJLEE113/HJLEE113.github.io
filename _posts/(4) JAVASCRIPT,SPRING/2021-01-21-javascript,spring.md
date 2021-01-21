@@ -24,6 +24,7 @@ bStep > ? 은 무슨 의미 인가?
 select deptno,avg(sal) from emp group by deptno;
 ~~~
 ![image](https://user-images.githubusercontent.com/74958197/105342243-774bd000-5c23-11eb-8907-43f432299686.png)
+
 -18. 오늘은 몇요일인가? 
 ~~~sql
 select to_char(sysdate, 'day') as "오늘 요일" from dual;
