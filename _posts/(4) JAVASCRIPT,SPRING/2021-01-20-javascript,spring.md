@@ -431,7 +431,11 @@ package com.javalec.ex;
 
 public class Rectangle implements IShape {
 	double side;
-
+  
+	public Rectangle(){
+    //디폴트 생성자 꼬오오옥 만들어주기
+  }
+  
 	public Rectangle(double side) {
 		this.side = side;
 	}
