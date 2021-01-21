@@ -4,7 +4,7 @@ layout: post
 title: 21.01.18 Mon
 date: 2021-01-18
 category: interview
-tags: [jsp, html]
+tags: [javascript, spring]
 
 ---
 

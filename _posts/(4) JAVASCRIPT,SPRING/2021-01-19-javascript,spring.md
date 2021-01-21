@@ -65,6 +65,13 @@ select deptno, sal from emp where sal >(select min(sal) from emp where deptno = 
 and(deptno, sal) in(select deptno,min(sal) from emp group by deptno);
 ~~~
 ## 4.삼각형및 사각형의 넓이를 구하는 프로그래밍을 IoC 컨테이너를 이용하여 프로그래밍 하시오.
+======================첫번째구현방법========================
+
+1.메인파일
+
+2.가로세로 사각삼각 넓이 변수파일
+
+3.값넣는 IoC xml파일
 ~~~html
 [applicationCTX.xml]
 <?xml version="1.0" encoding="UTF-8"?>
@@ -156,3 +163,118 @@ public class TriRec {
 }
 ~~~
 ![image](https://user-images.githubusercontent.com/74958197/105024756-d4168180-5a8f-11eb-805c-5d4c6c9e336c.png)
+
+================두번째 구현방법=================
+
+1.메인파일
+
+2.가로세로 변수파일(여기에 사각삼각넓이파일 생성)
+
+3.사각삼각 넓이 변수 파일
+
+4.값넣는 IoC xml파일
+
+~~~java
+[MainClass.java]
+package com.javalec.ex;
+
+import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.context.support.GenericXmlApplicationContext;
+
+public class MainClass {
+
+	public static void main(String[] args) {
+		String configLocation = "classpath:applicationCTX.xml";
+		
+		AbstractApplicationContext ctx = new GenericXmlApplicationContext(configLocation);
+		TriRec trirec = ctx.getBean("trirec", TriRec.class);
+		trirec.getTriRecArea();
+		ctx.close();
+	}
+}
+~~~
+~~~java
+[TriRec.java]
+package com.javalec.ex;
+
+public class TriRec {
+	private double width;
+	private double height;
+	private Area area;
+
+	
+	public Area getarea() {
+		return area;
+	}
+
+	public void setArea(Area area) {
+		this.area = area;
+	}
+	
+	public void setWidth(double width) {
+		this.width = width;
+	}
+
+	public void setHeight(double height) {
+		this.height = height;
+	}
+
+	public void area() {
+		area.area(width, height);
+	}
+	public void getTriRecArea() {
+		System.out.println("가로는 " + width);
+		System.out.println("세로는 " + height);
+		area();
+	}
+}
+~~~
+~~~java
+[Area.java]
+package com.javalec.ex;
+
+public class Area {
+	private double triArea;
+	private double recArea;
+
+	public void area(double width, double height) {
+		triArea = width * height * 0.5;
+		recArea = width * height;
+		
+		System.out.println("삼각형의 넓이는 : " + triArea);
+		System.out.println("사각형의 넓이는 : " + recArea);
+	}
+
+	public void setTriArea(double triArea) {
+		this.triArea = triArea;
+	}
+
+	public void setRecArea(double recArea) {
+		this.recArea = recArea;
+	}
+}
+~~~
+~~~java
+[applicationCTX.xml]
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="area" class="com.javalec.ex.Area">	
+	</bean>
+
+	<bean id="trirec" class="com.javalec.ex.TriRec">
+		<property name="width">
+			<value>3</value>
+		</property>
+		<property name="height">
+			<value>4</value>
+		</property>
+		<property name="area">
+			<ref bean="area" />
+		</property>
+	</bean>
+</beans>
+~~~
+![image](https://user-images.githubusercontent.com/74958197/105148491-c7546500-5b45-11eb-8c0e-0240c516370e.png)
