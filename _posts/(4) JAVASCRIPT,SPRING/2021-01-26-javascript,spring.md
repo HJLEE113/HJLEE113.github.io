@@ -11,20 +11,20 @@ tags: [javascript, spring]
 
 ## 1.아래의 xml 에 대하여 설명하시오. 
 
-##### -pom.xml
+#### -pom.xml
 개발자가 사용할 모듈(라이브러리)를 가져오기 위한 '<'dependency(의존성), artifactId(어떤모듈을 사용할지), version(모듈버전)'>'이 들어있는 파일
 
  
  
 
-##### -web.xml
+#### -web.xml
 어떤 servlet을 배포할 것인지, 그 servlet이 어떤 url에 매핑되는지 설정해주는 파일. 톰켓이 최초 구동될때 web.xml을 읽고 해당 설정을 구성한다. 
 
  
 
  
 
-##### -context.xml
+#### -context.xml
 servlet-context.xml : 웹관련쪽(dispatcher,controller-view)-어노테이션, 리소스 디렉토리, ViewResolver에 관한 설정
 views폴더 안에 .jsp파일을 알아서 불러올수 있는 경로 설정이 되어있다.
 
