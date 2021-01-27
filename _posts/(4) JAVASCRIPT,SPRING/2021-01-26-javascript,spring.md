@@ -9,28 +9,27 @@ tags: [javascript, spring]
 ---
 
 
-## 1.아래의 xml 에 대하여 설명하시오.
+## 1.아래의 xml 에 대하여 설명하시오. 
 
--pom.xml
-
+##### -pom.xml
 개발자가 사용할 모듈(라이브러리)를 가져오기 위한 '<'dependency(의존성), artifactId(어떤모듈을 사용할지), version(모듈버전)'>'이 들어있는 파일
 
  
  
 
--web.xml
-
+##### -web.xml
 어떤 servlet을 배포할 것인지, 그 servlet이 어떤 url에 매핑되는지 설정해주는 파일. 톰켓이 최초 구동될때 web.xml을 읽고 해당 설정을 구성한다. 
 
  
 
  
 
--context.xml
-
+##### -context.xml
 servlet-context.xml : 웹관련쪽(dispatcher,controller-view)-어노테이션, 리소스 디렉토리, ViewResolver에 관한 설정
+views폴더 안에 .jsp파일을 알아서 불러올수 있는 경로 설정이 되어있다.
 
 root-context.xml : 그 외 부분(command, dao)-View 지원을 제외한 bean을 설정. ex) Service / Repository(DAO) / DB/ log 등등
+odbc를 쓰기위해 hikari를 넣는다.(oracle과 spring연결. jsp에서는 3종세트로 직접 입력했었음)
 
  
 
@@ -75,7 +74,9 @@ web.xml에서 `<filter>`소스를 넣어야 한다.
 
 XML이나 @(annotation)을 사용하여 SQL문으로 객체를 연결시키는 것.
 
-
+수업예제에선
+BoardMapper의 자식(BoardServiceImpl.java의 list)을 구현할때 BoardMapper.xml를 사용해서 객체를 연결시켰다.
+(id명 맞춰주는것과 resultType에서 패키지명 제대로 써줘야함)
 
 pom.xml에 해당 소스를 넣어야한다.
 ~~~xml
