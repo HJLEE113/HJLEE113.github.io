@@ -1,0 +1,21 @@
+---
+
+layout: post
+title: 21.02.01 Mon
+date: 2021-02-01
+category: interview
+tags: [javascript, spring]
+
+---
+
+
+## 1.emp list 페이징을 구현하시오.
+
+
+
+## 2.오라클 11g 이하에서의 페이징 처리 방법(DB sql관련)은 ?
+
+
+
+
+## 3.rownum 에 대하여 설명하시오.
